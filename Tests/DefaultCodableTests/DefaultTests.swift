@@ -2,7 +2,7 @@ import DefaultCodable
 import XCTest
 
 final class DefaultTests: XCTestCase {
-    private enum ThingType: String, Codable, Equatable, CaseIterable {
+    private enum ThingType: String, Codable, CaseIterable {
         case foo, bar, baz
     }
 
