@@ -23,6 +23,8 @@ public struct Default<Provider: DefaultValueProvider>: Codable {
     }
 }
 
+extension Default: Equatable where Provider.Value: Equatable {}
+
 public extension KeyedDecodingContainer {
     func decode<P>(_: Default<P>.Type, forKey key: Key) throws -> Default<P> {
         if let value = try decodeIfPresent(Default<P>.self, forKey: key) {
