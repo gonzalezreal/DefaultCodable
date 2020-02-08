@@ -21,3 +21,11 @@ public enum Empty<A>: DefaultValueProvider where A: Codable, A: Equatable, A: Ra
 public enum FirstCase<A>: DefaultValueProvider where A: Codable, A: Equatable, A: CaseIterable {
     public static var `default`: A { A.allCases.first! }
 }
+
+public enum Zero: DefaultValueProvider {
+    public static let `default` = 0
+}
+
+public enum One: DefaultValueProvider {
+    public static let `default` = 1
+}

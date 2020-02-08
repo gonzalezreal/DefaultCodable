@@ -76,6 +76,9 @@ It provides an empty instance of a `String`, `Array` or any type that implements
 ### `True` and `False`
 Provide `true` and `false` respectively for `Bool` properties.
 
+### `Zero` and `One`
+Provide `0` and `1` respectively for `Int` properties.
+
 ### `FirstCase`
 It provides the first case of an `enum` type as the default value. The `enum` must implement the `CaseIterable` protocol.
 
