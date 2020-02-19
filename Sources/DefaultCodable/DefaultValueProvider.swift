@@ -29,3 +29,7 @@ public enum Zero: DefaultValueProvider {
 public enum One: DefaultValueProvider {
     public static let `default` = 1
 }
+
+public enum ZeroDouble: DefaultValueProvider {
+    public static let `default`: Double = 0
+}

@@ -82,6 +82,9 @@ Provide `0` and `1` respectively for `Int` properties.
 ### `FirstCase`
 It provides the first case of an `enum` type as the default value. The `enum` must implement the `CaseIterable` protocol.
 
+### `ZeroDouble`
+Provide `0` for `Double` properties.
+
 ## Default values for custom types
 Your custom type must implement the `DefaultValueProvider` protocol to be compatible with the `@Default` property wrapper.
 

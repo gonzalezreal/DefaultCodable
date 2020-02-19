@@ -17,6 +17,9 @@ final class DefaultTests: XCTestCase {
 
         @Default<FirstCase>
         var type: ThingType
+
+        @Default<ZeroDouble>
+        var floatingPoint: Double
     }
 
     func testValueDecodesToActualValue() throws {
@@ -26,7 +29,8 @@ final class DefaultTests: XCTestCase {
           "name": "Any name",
           "description": "Any description",
           "isFoo": false,
-          "type": "baz"
+          "type": "baz",
+          "floatingPoint": 12.34
         }
         """.data(using: .utf8)!
 
@@ -37,6 +41,7 @@ final class DefaultTests: XCTestCase {
         XCTAssertEqual("Any description", result.description)
         XCTAssertFalse(result.isFoo)
         XCTAssertEqual(ThingType.baz, result.type)
+        XCTAssertEqual(result.floatingPoint, 12.34)
     }
 
     func testNullDecodesToDefaultValue() throws {
@@ -46,7 +51,8 @@ final class DefaultTests: XCTestCase {
           "name": "Any name",
           "description": null,
           "isFoo": null,
-          "type": null
+          "type": null,
+          "floatingPoint": null
         }
         """.data(using: .utf8)!
 
@@ -57,6 +63,7 @@ final class DefaultTests: XCTestCase {
         XCTAssertEqual("", result.description)
         XCTAssertTrue(result.isFoo)
         XCTAssertEqual(ThingType.foo, result.type)
+        XCTAssertEqual(result.floatingPoint, 0)
     }
 
     func testNotPresentValueDecodesToDefaultValue() throws {
@@ -74,6 +81,7 @@ final class DefaultTests: XCTestCase {
         XCTAssertEqual("", result.description)
         XCTAssertTrue(result.isFoo)
         XCTAssertEqual(ThingType.foo, result.type)
+        XCTAssertEqual(result.floatingPoint, 0)
     }
 
     func testTypeMismatchThrows() {
@@ -83,7 +91,8 @@ final class DefaultTests: XCTestCase {
           "name": "Any name",
           "description": ["nope"],
           "isFoo": 5500,
-          "type": [1, 2, 3]
+          "type": [1, 2, 3],
+          "floatingPoint": "point"
         }
         """.data(using: .utf8)!
 
@@ -94,10 +103,11 @@ final class DefaultTests: XCTestCase {
     @available(OSX 10.13, iOS 11.0, watchOS 4.0, tvOS 11.0, *)
     func testValueEncodesToActualValue() throws {
         // given
-        let thing = Thing(name: "Any name", description: "Any description", isFoo: false, type: .baz)
+        let thing = Thing(name: "Any name", description: "Any description", isFoo: false, type: .baz, floatingPoint: 12.34)
         let expected = """
         {
           "description" : "Any description",
+          "floatingPoint" : 12.34,
           "isFoo" : false,
           "name" : "Any name",
           "type" : "baz"
