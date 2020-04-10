@@ -20,6 +20,14 @@ final class DefaultTests: XCTestCase {
 
         @Default<ZeroDouble>
         var floatingPoint: Double
+
+        init(name: String, description: String = "", isFoo: Bool = true, type: ThingType = .foo, floatingPoint: Double = 0) {
+            self.name = name
+            self.description = description
+            self.isFoo = isFoo
+            self.type = type
+            self.floatingPoint = floatingPoint
+        }
     }
 
     func testValueDecodesToActualValue() throws {
