@@ -18,6 +18,10 @@ public enum Empty<A>: DefaultValueProvider where A: Codable, A: Equatable, A: Ra
     public static var `default`: A { A() }
 }
 
+public enum EmptyDictionary<K, V>: DefaultValueProvider where K: Hashable & Codable, V: Equatable & Codable {
+    public static var `default`: [K: V] { Dictionary() }
+}
+
 public enum FirstCase<A>: DefaultValueProvider where A: Codable, A: Equatable, A: CaseIterable {
     public static var `default`: A { A.allCases.first! }
 }

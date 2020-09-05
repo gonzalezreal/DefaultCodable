@@ -73,6 +73,9 @@ protocol DefaultValueProvider {
 ### `Empty`
 It provides an empty instance of a `String`, `Array` or any type that implements `RangeReplaceableCollection`.
 
+### `EmptyDictionary`
+It provides an empty instance of a `Dictionary`.
+
 ### `True` and `False`
 Provide `true` and `false` respectively for `Bool` properties.
 
