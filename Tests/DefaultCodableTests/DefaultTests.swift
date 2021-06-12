@@ -6,7 +6,7 @@ final class DefaultTests: XCTestCase {
         case foo, bar, baz
     }
 
-    private struct Thing: Codable, Equatable {
+    private struct Thing: Codable, Hashable {
         var name: String
 
         @Default<Empty> var description: String

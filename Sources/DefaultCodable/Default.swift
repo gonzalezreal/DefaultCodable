@@ -24,6 +24,7 @@ public struct Default<Provider: DefaultValueProvider>: Codable {
 }
 
 extension Default: Equatable where Provider.Value: Equatable {}
+extension Default: Hashable where Provider.Value: Hashable {}
 
 public extension KeyedDecodingContainer {
     func decode<P>(_: Default<P>.Type, forKey key: Key) throws -> Default<P> {
